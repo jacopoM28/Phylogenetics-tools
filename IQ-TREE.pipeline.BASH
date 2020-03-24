@@ -42,9 +42,9 @@ while getopts ":i:t:n:h" o; do
 
 	mkdir output
 	
-	echo "*** performing 100 IQ-TREE tree searches ***"
+	echo "*** performing 100 IQ-TREE tree searches with variable perturbation strenght and 1000 UltraFast Bootstrap replicates ***"
 
-	for run in {1..10}; 
+	for run in {1..100}; 
 do 
 	(( n = 1 + RANDOM % 100 )); 	
 	pers=$(printf '%s.%s\n' $(( n / 100 )) $(( n % 100 )));
@@ -97,7 +97,7 @@ done;
  	iqtree -t ML.tree -rf consensus.contree -pre MLvsContree -quiet
  	iqtree -t all.ML.trees -rf_all -pre MLtrees -quiet
  	
- 	echo "*** IQ-TREEx tree comparison...done ***"
+ 	echo "*** IQ-TREE trees comparison...done ***"
  	
 ###Constrained tree search on the topology of the consensus tree and topology test between the result and the ML tree
 ###Nodal support values represents "Consensus support"/ "UltrafastBootstrap"
