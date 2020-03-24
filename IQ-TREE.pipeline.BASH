@@ -10,7 +10,7 @@ while getopts ":i:t:n:h" o; do
         	;;
         h) echo "Runs 100 IQ-TREE ML trees searches, computes the RF distances between the ML trees, compares the LogL and finds the one(s) with the highest, finally it computes a consensus tree between all the ML trees and calculates the RF distances.
     
-    IMPORTANT: IQ-tree path and/or version must be specified by the users modifing lines 44, 46, 58, 82 and 83
+    IMPORTANT: IQ-tree path and/or version must be specified by the user modifing lines 44, 46, 58, 82 and 83
     input file:	
 			-i .fasta alignment.
 			-t a priori partitioning scheme.
