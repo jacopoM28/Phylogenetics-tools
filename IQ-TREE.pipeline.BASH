@@ -38,7 +38,7 @@ while getopts ":i:t:n:h" o; do
          esac
      done
 
-##make 100 iq-tree run and save ML trees in all.ML.trees file
+##makes 100 iq-tree run and save ML trees in all.ML.trees file
 
 	mkdir output
 	
@@ -66,12 +66,12 @@ fi;
 
 done;
 
-##Make consensus tree from obtained ML trees
+##Makes consensus tree from obtained ML trees
 	
 	iqtree -t all.ML.trees -con -pre consensus -nt "$core" -quiet
 	echo "*** IQ-TREE consensus tree...done ***"
 	
-###Compare LogL of the ML trees, finds the best one and compare it with consensus
+###Compares LogL of the ML trees, finds the best one and compare it with consensus
 
 for i in *.iqtree; 
 do 
@@ -100,7 +100,7 @@ done;
  	echo "*** IQ-TREE trees comparison...done ***"
  	
 ###Constrained tree search on the topology of the consensus tree and topology test between the result and the ML tree
-###Nodal support values represents "Consensus support"/ "UltrafastBootstrap"
+###Nodal support values represent "Consensus support"/ "UltrafastBootstrap"
 
 	iqtree -s "$input" -spp run1.best_scheme.nex -g consensus.contree -pre ML.consensus -bb 1000 -nt "$core" -quiet
 	
