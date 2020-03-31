@@ -52,7 +52,7 @@ do
 	
 	if [[ "$run" == "1" ]]; 
 then 
-	iqtree -s $input -m TEST -spp "$code" -pre run"$run" -bb 1000 -pers "$pers" -nt "$core" -quiet -nstop 500 -nm 5000
+	iqtree -s $input -m TESTNEWMERGE -spp "$code" -pre run"$run" -bb 1000 -pers "$pers" -nt "$core" -quiet -nstop 500 -nm 5000
 else
 	iqtree -s $input -spp run1.best_scheme.nex -pre run"$run" -bb 1000 -pers "$pers" -nt "$core" -quiet -nstop 500 -nm 5000
 fi;
