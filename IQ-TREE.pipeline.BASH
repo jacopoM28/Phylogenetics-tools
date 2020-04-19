@@ -8,30 +8,27 @@ while getopts ":i:t:n:h" o; do
             ;;
         n) core=${OPTARG}
         	;;
-        h) echo "Runs 100 IQ-TREE ML trees searches, computes the RF distances between the ML trees, compares the LogL and finds the one(s) with the highest one, finally it computes a consensus tree between all the ML trees and calculates the RF distances.
-    
-    IMPORTANT: IQ-tree path and/or version must be specified by the users modifing lines 55, 57, 72, 98, 99, 106, 113, 114.
+        h) echo "Runs 100 IQ-TREE ML trees searches, computes the RF distances between the ML trees, compares the LogL and finds the one(s) with the highest one, finally it computes a consensus tree between all the ML trees.
+    IMPORTANT: IQ-tree path and/or version must be specified by the users by editing lines 55, 57, 72, 98, 99, 106, 113, 114.
     input file:	
 			-i .fasta alignment.
 			-t a priori partitioning scheme.
-			-n numbers of cores
+			-n numbers of cores.
 	all output files are stored in the output directory:
 			all.ML.trees = collection of ML trees. 
 			ML.tree = best ML tree(s).
 			LogL.comparison.txt = LogL references.
 			ML.contree = consensus tree.
-			MLtrees.rfdist = RF distances between ML trees.
-			MLvsContree.rfdist = RF distances between ML and consensus tree.
 			consensus.constrained.treefile = Constrained tree on the consensus topology.
 			MLandConsensus.txt = ML and Constrained tree.
 			topology.test.iqtree = Results of the topology test.
-			consensus.contree.suptree = ML trees with mapped the consensus support values
+			all.ML.trees.suptree = ML trees with mapped the consensus support values
 			
 *****IMPORTANT NOTES*****
 		1) IQ-tree tree search parameters can be adjusted modifing lines 55 and 57.
 		2) By default a semi-random number between 0.1 and 1 is extracted and used as perturbation strength value.
 		      To disable this option comments line 39, 40 and modifies the respectively -pers option in IQ-tree parameters.	
-		3) In the output of topology test tree 1 = ML tree, while tree 2 = Consensus tree      
+		3) In the output of topology test tree 1 = ML tree and tree 2 = Consensus tree      
 				
 				"
                exit
@@ -39,7 +36,7 @@ while getopts ":i:t:n:h" o; do
          esac
      done
 
-##make 100 iq-tree run and save ML trees in all.ML.trees file
+##100 iq-tree runs and saves the ML trees in all.ML.trees file
 
 	mkdir output
 	
@@ -67,12 +64,12 @@ fi;
 
 done;
 
-##Make consensus tree from obtained ML trees
+##Makes consensus tree from obtained ML trees
 	
 	iqtree -t all.ML.trees -con -pre consensus -nt "$core" -quiet
 	echo "*** IQ-TREE consensus tree...done ***"
 	
-###Compare LogL of the ML trees, finds the best one and compare it with consensus
+###Compares LogL of the ML trees and finds the "best" one
 
 for i in *.iqtree; 
 do 
@@ -94,9 +91,6 @@ done;
 	bestree=$(echo "$bestLogL" | awk -F " " '{print$1}');
 	echo "*** ${bestree} IS THE ML TREE ***"
 	cat "$bestree" >> ML.tree
-	
- 	iqtree -t ML.tree -rf consensus.contree -pre MLvsContree -quiet
- 	iqtree -t all.ML.trees -rf_all -pre MLtrees -quiet
  	
  	echo "*** IQ-TREEx tree comparison...done ***"
  	
@@ -120,10 +114,11 @@ done;
  	mv consensus.contree ./output
 	mv all.ML.trees ./output
 	mv ML.tree ./output
-	mv MLtrees.rfdist ./output
-	mv MLvsContree.rfdist ./output
 	mv MLandConsensus.txt ./output
 	mv consensus.contree.suptree ./output
+	mv all.ML.trees.suptree ./output
+
+#Plot of the likelihood values of the trees previously infered
 	
 	echo " *** lunching R script ****"
 	
