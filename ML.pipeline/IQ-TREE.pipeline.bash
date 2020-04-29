@@ -105,7 +105,7 @@ done;
 	cat ML.consensus.treefile >> MLandConsensus.txt
 	
 	iqtree -s "$input" -spp run1.best_scheme.nex -z MLandConsensus.txt -n 0 -zb 10000 -zw -au -pre topology.test -te ML.tree -quiet
-	iqtree -sup ML.tree -t consensus.contree
+	iqtree -sup ML.tree -t all.ML.trees
 	
 	echo "*** all analyses are finished....collecting results ***"
 	 
