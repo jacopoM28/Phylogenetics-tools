@@ -19,5 +19,3 @@ sed -i '' -e "s/,${varID}:/,${varTaxon}:/g" -e "s/(${varID}:/(${varTaxon}:/g" "$
 
 fi;
 done < "$annotation"
-
-sed -i '' -e 's/,0917/,Diapherodes dominicae/g' -e 's/(0917/(Diapherodes dominicae/g' "$tree".renamed.newick
