@@ -10,7 +10,7 @@ README
 
 By default it recoded a nucleotide MSA into RY sequences, following the
 IUPAC ambiguity codes. It is possible to change default setting to
-recoded the sequences as a binary 0 - 1 sequences.
+recoded the sequences as binary 0 - 1 sequences.
 
 **Usefull for decrease impact of heterogeneity in nucleotide composition
 and substitution saturation**
@@ -25,4 +25,6 @@ stored in a tab separated .txt
 It filters a multi-fasta based on a user-defined treshold values of
 number of pb. The excluded sequences are annotated in a .txt file
 
-\*\*Also MSA are accepted with gaps ignored
+  - ### Rename\_taxaID
+  
+Renames tips of a tree or a set of trees in according to a tab delimited file
