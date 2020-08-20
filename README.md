@@ -3,7 +3,7 @@ README
 
 ## Set of Bash script which can be usefull during Phylogenetics analyses, making them quicker and easier
 
-> All the scripts work with oneliner fasta, use option -h to display
+> All the scripts work with oneliner fasta or newick, use option -h to display
 > help
 
   - #### Binary\_MSA\_recoder:
@@ -25,6 +25,6 @@ stored in a tab separated .txt
 It filters a multi-fasta based on a user-defined treshold values of
 number of pb. The excluded sequences are annotated in a .txt file
 
-  - ### Rename\_taxaID
+  - #### Rename\_taxaID
   
 Renames tips of a tree or a set of trees in according to a tab delimited file
