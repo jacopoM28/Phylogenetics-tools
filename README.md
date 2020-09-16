@@ -28,3 +28,11 @@ number of pb. The excluded sequences are annotated in a .txt file
   - #### Rename\_taxaID
   
 Renames tips of a tree or a set of trees in according to a tab delimited file
+
+  - #### Multiple\_pruning
+  
+It prunes a set of trees using phyutility in according to a .txt file as first argoument to be passed to the script where each new line represent a taxa id. For gene trees it should be used the "GENE" option as second argument which avoid the interruption of phyutility when a tree does not contain all the tips. With this option the script is returning an output summary file where are stored for each gene the removed taxa. If you have a species tree you should left the second argument empty.
+
+NB:If you chose the "GENE" option, is preferable to have the gene name at the beggining of the file name and separated from the rest by a point
+
+  ES: 12s.complete.newick
