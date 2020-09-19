@@ -36,3 +36,11 @@ It prunes a set of trees using phyutility in according to a .txt file as first a
 NB:If you chose the "GENE" option, is preferable to have the gene name at the beggining of the file name and separated from the rest by a point
 
   ES: 12s.complete.newick
+  
+  -#### Remove\_HipensAndPoints
+  
+It replaces hipens and point from the header of the fasta with underscore.
+ 
+  -#### Rename\_fasta
+
+It renames header of a fasta file in according with an annotation tab-delimited text file, deleting taxa without corrispondece (reported in an output text file).
