@@ -39,8 +39,8 @@ NB:If you chose the "GENE" option, is preferable to have the gene name at the be
   
   - #### Remove\_HipensAndPoints
   
-It replaces hipens and point from the header of the fasta with underscore.
+It replaces hipens and points with underscore from the header of the fasta.
  
   - #### Rename\_fasta
 
-It renames header of a fasta file in according with an annotation tab-delimited text file, deleting taxa without corrispondece (reported in an output text file).
+It renames header of a fasta file in accordance with an annotation tab-delimited text file, deleting taxa without corrispondence (reported in an output text file).
