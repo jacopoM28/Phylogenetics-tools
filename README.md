@@ -1,10 +1,7 @@
 README
 ================
 
-## Set of Bash script which can be usefull during Phylogenetics analyses, making them quicker and easier
-
-> All the scripts work with oneliner fasta or newick, use option -h to display
-> help
+## Set of scripts written during my MSC intership for get confident with basic Bash. 
 
   - #### Binary\_MSA\_recoder:
 
